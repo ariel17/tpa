@@ -1,2 +1,2 @@
 # Default project requirements
--r requirements.txt
+-r requirements/test.txt
