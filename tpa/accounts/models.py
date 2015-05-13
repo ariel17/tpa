@@ -9,22 +9,16 @@ from django.conf import settings
 from django.db import models
 
 
-class Condition(models.Model):
-    """
-    A health condition (could be a desease or general condition).
-    """
-    name = models.Model(u'Name', max_length=100)
+SEX_CHOICES = (
+    ('m', u'Male'),
+    ('f', u'Female'),
+)
 
 
 class Profile(models.Model):
     """
     Stores the user's description and preferences.
     """
-    SEX_CHOICES = (
-        ('m', u'Male'),
-        ('f', u'Female'),
-    )
-
     COMPLEXION_CHOICES = (
         ('l', u'Little'),
         ('m', u'Middle'),
@@ -36,7 +30,7 @@ class Profile(models.Model):
     born_date = models.DateField(u'Born date')
     height = models.PositiveIntegerField(u'Height')
     complexion = models.CharField(u'Complexion', max_length=1, choices=COMPLEXION_CHOICES)
-    conditions = models.ManyToManyField(Condition)
+    conditions = models.ManyToManyField('health.Condition', help_text=u'Existent health conditions')
 
 
 class Classification(models.Model):

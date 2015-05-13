@@ -59,7 +59,7 @@ class Seasson(models.Model):
     A seasson for the plate.
     """
     name = models.CharField(u'Name', max_length=50)
-    from_date = models.DateField(u'From date', null=True)
+    from_date = models.DateField(u'From date')
     to_date = models.DateField(u'To date', null=True)
 
 
