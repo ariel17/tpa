@@ -7,6 +7,6 @@ env:
 install:
   - pip install -r requirements/test.txt
 script:
-  - cd tpa; coverage run --source=. manage.py test
+  - cd tpa; coverage run --source='.' manage.py test
 after_success:
   - coveralls
