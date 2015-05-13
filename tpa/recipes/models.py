@@ -6,7 +6,7 @@ Description: Model declaration module for recipes and relateds.
 """
 
 from django.conf import settings
-from django.contrib.auth import Group
+from django.contrib.auth.models import Group
 from django.db import models
 
 
@@ -79,7 +79,7 @@ class Recipe(models.Model):
     group = models.ForeignKey(Group, null=True)
     ingredients = models.ManyToManyField(Ingredient, through=Portion)
     condiments = models.ManyToManyField(Condiment)
-    level = models.CharField(u'Level', choices=LEVEL_CHOICES, help_text=u'How hard could it be to cook this?')
+    level = models.CharField(u'Level', max_length=1, choices=LEVEL_CHOICES, help_text=u'How hard could it be to cook this?')
     seasson = models.ForeignKey(Seasson, null=True, help_text=u'Does this plate taste better in some seasson?')
 
     def total_calories(self):

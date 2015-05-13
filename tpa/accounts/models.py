@@ -26,7 +26,7 @@ class Profile(models.Model):
     )
 
     user = models.OneToOneField(settings.AUTH_USER_MODEL, verbose_name=u'User')
-    sex = models.CharField(u'Sex', choices=SEX_CHOICES)
+    sex = models.CharField(u'Sex', max_length=1, choices=SEX_CHOICES)
     born_date = models.DateField(u'Born date')
     height = models.PositiveIntegerField(u'Height')
     complexion = models.CharField(u'Complexion', max_length=1, choices=COMPLEXION_CHOICES)
@@ -41,7 +41,7 @@ class Classification(models.Model):
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=u'User')
     recipe = models.ForeignKey('recipes.Recipe', verbose_name=u'Recipe')
-    value = models.PositiveIntegerField(u'value', max_length=1, choices=VALUE_CHOICES)
+    value = models.PositiveIntegerField(u'value', choices=VALUE_CHOICES)
 
 
 class History(models.Model):
