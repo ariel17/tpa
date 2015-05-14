@@ -51,7 +51,8 @@ class Condiment(models.Model):
     """
     An extra flavor for foods.
     """
-    name = models.CharField('Name', max_length=50)
+    name = models.CharField(u'Name', max_length=50)
+    type = models.ForeignKey(CondimentType, verbose_name=u'Type')
 
 
 class Seasson(models.Model):
