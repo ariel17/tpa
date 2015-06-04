@@ -15,11 +15,11 @@ class FoodTypeAdmin(admin.ModelAdmin):
 
 
 class IngredientAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('name', 'calories')
 
 
 class PortionAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('ingredient', 'recipe', 'portions')
 
 
 class CondimentTypeAdmin(admin.ModelAdmin):
@@ -27,23 +27,23 @@ class CondimentTypeAdmin(admin.ModelAdmin):
 
 
 class CondimentAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('name', 'type')
 
 
 class SeassonAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('name', 'from_date', 'to_date')
 
 
 class RecipeAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('author', 'title', 'type', 'group', 'level', 'seasson')
 
 
 class RecipeStepAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('recipe', 'step')
 
 
 class RecipeImageAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('recipe', 'image')
 
 
 admin.site.register(FoodType, FoodTypeAdmin)

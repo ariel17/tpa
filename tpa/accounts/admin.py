@@ -11,11 +11,13 @@ from .models import Profile, Classification, History, Statistic
 
 
 class ProfileAdmin(admin.ModelAdmin):
-    pass
+    list_display = (
+        'user', 'sex', 'born_date', 'height', 'weight', 'complexion', 'rutine',
+    )
 
 
 class ClassificationAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('user', 'recipe', 'value', )
 
 
 class HistoryAdmin(admin.ModelAdmin):

@@ -15,7 +15,10 @@ class ConditionAdmin(admin.ModelAdmin):
 
 
 class IdealWeightAdmin(admin.ModelAdmin):
-    pass
+    list_display = (
+        'sex', 'height', 'chest_measure', 'slim_measure', 'hip_measure',
+        'max_weight', 'min_weight',
+    )
 
 
 class DietTypeAdmin(admin.ModelAdmin):
@@ -23,7 +26,7 @@ class DietTypeAdmin(admin.ModelAdmin):
 
 
 class PyramidGroupAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('name', 'description', 'contraindications', )
 
 
 admin.site.register(Condition, ConditionAdmin)
